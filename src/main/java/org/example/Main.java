@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 public class Main {
 
+    static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
+        boolean run = true;
 
-        loop:
-        while (true) {
+        while (run) {
 
             System.out.print("\nВыберите задание:\n 1)Вывести типы данных\n 2)Сравнение чисел\n" +
                     " 3)Вывод всех простых чисел в заданном диапазоне\n 4)Корзина\n 5)Проверка пароля\n 6)Выход\n");
@@ -34,9 +35,9 @@ public class Main {
                     getTask5(in);
                     break;
                 case 6:
-                    break loop;
+                    run = false;
+                    break;
             }
-
         }
         in.close();
     }
@@ -99,16 +100,16 @@ public class Main {
 
         List<String> list = new ArrayList<>();
         boolean quit = false;
-        System.out.println("Для выхода из корзины введите quit.\nВведите товар:");
+
+        System.out.println("Для выхода из корзины введите quist.\nВведите товар:");
 
         while (!quit) {
-            System.out.println(list);
             String product = in.next();
-            list.add(product);
-
             if (product.equals("quit")) {
                 quit = true;
+                System.out.println(list);
             }
+            list.add(product);
         }
     }
 
